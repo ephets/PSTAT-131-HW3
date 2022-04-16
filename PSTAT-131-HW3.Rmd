@@ -1,0 +1,29 @@
+---
+title: "PSTAT-131-HW3"
+author: "Ephets Head"
+date: "4/15/2022"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r, include=FALSE}
+library(tidymodels)
+library(tidyverse)
+```
+
+**For this assignment, we will be using the *titanic* data set to predict which passengers would survive the Titanic shipwreck. First we will load the data into R from *data/titanic.csv*.**
+
+```{r}
+titanic <-read_csv("data/titanic.csv", show_col_types=FALSE)
+head(titanic)
+```
+ **The variables *survived* and *pclass* are both categorical predictors not representative of a quantity, so they must be changed into factor variables.**
+
+```{r}
+titanic$survived <- factor(titanic$survived, ordered=)
+titanic$pclass <- factor(titanic$pclass)
+```
+
